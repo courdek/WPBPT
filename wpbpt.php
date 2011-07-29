@@ -65,7 +65,9 @@ function bpt_handler($atts)
 			{
 				
 				$time_raw = strtotime($date['timestart'].' '.$date['datestart']);
+				if($time_raw < time()) continue; // If show is in the past, skip to next entry
 				$output .= '<li><span class="bpt_event_time">'.date('l, F j, Y \a\t g:i A', $time_raw)."</span></li>";
+				
 			}
 			$output .= '</ul>';
 		
